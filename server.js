@@ -1,10 +1,11 @@
 const express = require('express')
 const { engine } = require('express-handlebars')
 
+require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT || 3333
 
-const routes = require('./routes')
+const api_routes = require('./routes/api_routes')
 
 const client = require('./db/client')
 
@@ -19,7 +20,7 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 
 // Load all routes
-app.use('/', routes)
+app.use('/', api_routes)
 
 // Connect database
 client.sync()

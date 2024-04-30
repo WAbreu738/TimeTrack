@@ -12,12 +12,12 @@ Event.init(
       autoIncrement: true
     },
     year: {
-    type: DataTypes.INTEGER,
-     allowNull: false,
-        defaultValue: 10,
-        validate: {
-          isNumeric: true
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric: true
+      }
     },
     title: {
         type: DataTypes.STRING,
