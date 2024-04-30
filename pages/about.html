@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>TimeLine Hamburger NAV</title>
+    <meta charset="utf-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Custom styles for hamburger menu */
+        .navbar-toggle {
+            border: none;
+            background: transparent;
+            padding: 15px 15px;
+            margin-top: 8px;
+        }
+        .navbar-toggle .icon-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            border-radius: 1px;
+            background-color: #fff;
+        }
+        .navbar-toggle .icon-bar + .icon-bar {
+            margin-top: 4px;
+        }
+    </style>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" 
+                            type="button" 
+                            data-toggle="collapse" 
+                            data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">TimeLine</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/pages/home.html">Home</a></li>
+                        <li class="active"><a href="#">About</a></li>
+                        <li><a href="/pages/register.html">SignUp</a> </li>
+                        <li><a href="/pages/login.html">LogIn</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body>
+    <div class="content">
+        <!-- The embedded GIF container is now linked to the GIF link in the navigation bar -->
+        <div class="embedded-gif-container">
+          <!-- Embed the GIF using the provided iframe code -->
+          <iframe src="https://gifer.com/embed/7Knv" width="400" height="225" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><a href="/index.html" style="justify-content: center">Go to Timeline</a></p>
+    </div>
+</body>
+
+
+</html>
