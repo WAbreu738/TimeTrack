@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timeline Example</title>
+  <link href="./dist/jquery.roadmap.min.css" rel="stylesheet">
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include jQuery Roadmap Plugin -->
+  <script src=".//dist/jquery.roadmap.min.js"></script>
+  <style> /* Custom styling for the timeline */
+    .event {
+      margin-bottom: 20px;
+      width: 300px; /* Adjust width as needed */
+      display: block;
+    }
+    .event img {
+      max-width: 100px;
+      max-height: 100px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>Timeline</h1>
+  </nav>
+  <div id="my-timeline"></div>
+
+  <script>
+    $(document).ready(function() {
+      // Create an array of events for the timeline
+      var myLifeStory = [
+        {
+          date: 'Born - 1937',
+          content: 'John Smith was born on May 15, 1937, in New York City.'
+        },
+        {
+          date: 'Childhood - 1940s',
+          content: 'He grew up in a loving family in a small suburban neighborhood.'
+        },
+        {
+          date: 'Education - 1950s',
+          content: 'John attended high school where he excelled in academics and sports.'
+        },
+        {
+          date: 'College - 1955',
+          content: 'He went to college and studied engineering, his passion since childhood.'
+        },
+        {
+          date: 'Career Start - 1960s',
+          content: 'John started his career as an engineer at a local manufacturing company.'
+        },
+        {
+          date: 'Marriage - 1963',
+          content: 'In 1963, John married his college sweetheart, Sarah.'
+        },
+        {
+          date: 'Children - 1965-1970',
+          content: 'Over the next few years, they welcomed two children into their family.'
+        },
+        {
+          date: 'Promotion - 1975',
+          content: 'John was promoted to a managerial position for his exemplary work.'
+        },
+        {
+          date: 'Retirement - 2000',
+          content: 'After a successful career, John retired and enjoyed traveling with his wife.'
+        },
+        {
+          date: 'Grandchildren - 2005',
+          content: 'In 2005, they became proud grandparents, cherishing every moment with their grandchildren.'
+        },
+        {
+          date: 'Legacy - Present',
+          content: 'John\'s legacy lives on through his family, friends, and the impact he made on his community.'
+        }
+      ];
+
+      // Initialize the plugin
+      $('#my-timeline').roadmap(myLifeStory);
+    });
+  </script>
+</body>
+</html>
