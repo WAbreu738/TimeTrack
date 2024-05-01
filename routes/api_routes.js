@@ -1,6 +1,17 @@
 const router = require('express').Router()
 const { User, Event } = require('../models')
 
+function isAuthenticated(req, res, next) {
+  console.log(req.session)
+
+  if (!req.session.user_id) {
+    return res.redirect('/register')
+  }
+
+  next()
+}
+
+
 function handleValidationError(err, res) {
   console.log(err)
 
@@ -48,8 +59,14 @@ router.post('/auth/register', async (req, res) => {
 }
 })
 
+router.get('/main', (req, res) => {
+  res.render('main'); 
+});
+
+
+
 //view route
-router.get('/events', (req, res) => {
+router.get('/events', isAuthenticated, (req, res) => {
   console.log(req.session)
   console.log(req.session.user_id)
   res.render('events'); 
