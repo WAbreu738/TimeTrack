@@ -1,6 +1,16 @@
 const router = require('express').Router()
 const { User, Event } = require('../models')
 
+function isAuthenticated(req, res, next) {
+  console.log(req.session)
+
+  if (!req.session.user_id) {
+    return res.redirect('/register')
+  }
+
+  next()
+}
+
 
 function handleValidationError(err, res) {
   console.log(err)
@@ -17,100 +27,109 @@ function handleValidationError(err, res) {
   })
 }
 
-
-// Create a GET route to get all user and attach their associated event
-router.get('/users', async (req, res) => {
-  try {
-    const users = await User.findAll({
-      include: Event
-    })
-
-    res.json(users)
-  } catch (err) {
-    console.log(err)
-
-    res.status(500).json({
-      message: 'Server error. Please try again.'
-    })
-  }
+router.get('/test', (req, res) => {
+  res.send('route works!')
 })
 
+// View route
+router.get('/auth/register', (req, res) => {
+  res.render('register'); 
+});
 
-// Create a GET route to get a single user by ID and attach their associated events
-router.get('/users/:id', async (req, res) => {
+//Register user
+router.post('/auth/register', async (req, res) => {
   try {
-    const id = req.params.id
-    const user = await User.findByPk(id, {
-      include: Event
-    })
+    const { email, password, first_name, last_name } = req.body
+    
+    
+    //Create a user in the databse
+    const newUser = await User.create(({
+      email,
+      password,
+      first_name,
+      last_name
+    }))
+    console.log(req.session)
+    req.session.user_id = newUser.user_id
+    res.redirect('/events')
+} catch (err) {
+  console.log(err)
 
-    if (!user) {
-      return res.json({
-        message: 'No user found with that ID.'
-      })
-    }
-
-    res.json(player)
-  } catch (err) {
-    console.log(err)
-
-    res.status(500).json({
-      message: 'Server error. Please try again.'
-    })
-  }
+  res.redirect('/auth/register')
+}
 })
 
+router.get('/main', (req, res) => {
+  res.render('main'); 
+});
+
+
+
+//view route
+router.get('/events', isAuthenticated, (req, res) => {
+  console.log(req.session)
+  console.log(req.session.user_id)
+  res.render('events'); 
+});
 
 // Create a POST route to create an event
 router.post('/events', async (req, res) => {
-    try {
-      const newEvent = await Event.create(req.body);
-  
-      res.json(newEvent);
-    } catch (err) {
-      handleValidationError(err, res);
-    }
-  });
+  try {
+    const { year, title, post } = req.body;
 
-
-// Create a PUT route to update an event's information
-router.put('/events/:id', async (req, res) => {
-    const { id } = req.params;
-    const newData = req.body;
+    // Create a new event in the database
+    const newEvent = await Event.create({
+      year,
+      title,
+      post,
+      user_id: req.session.user_id
+    });
     
-    try {
-      const event = await Event.findByPk(id);
-  
-      if (!event) {
-        return res.json({ message: 'Event not found.' });
-      }
-  
-      await event.update(newData);
-  
-      res.json(event);
-    } catch (err) {
-      handleValidationError(err, res);
-    }
-  });
+    
+  } catch (err) {
+    handleValidationError(err, res);
+  }
+});
 
-
-// Create a DELETE route to remove an event
-router.delete('/events/:id', async (req, res) => {
-    try {
-      const id = req.params.id;
-  
-      await Event.destroy({
-        where: {
-          event_id: id
-        }
-      });
-  
-      res.json({
-        message: 'Event deleted successfully!'
-      });
-    } catch (err) {
-      handleValidationError(err, res);
-    }
-  });
 
 module.exports = router
+
+// // Create a PUT route to update an event's information
+// router.put('/events/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const newData = req.body;
+    
+//     try {
+//       const event = await Event.findByPk(id);
+  
+//       if (!event) {
+//         return res.json({ message: 'Event not found.' });
+//       }
+  
+//       await event.update(newData);
+  
+//       res.json(event);
+//     } catch (err) {
+//       handleValidationError(err, res);
+//     }
+//   });
+
+
+// // Create a DELETE route to remove an event
+// router.delete('/events/:id', async (req, res) => {
+//     try {
+//       const id = req.params.id;
+  
+//       await Event.destroy({
+//         where: {
+//           event_id: id
+//         }
+//       });
+  
+//       res.json({
+//         message: 'Event deleted successfully!'
+//       });
+//     } catch (err) {
+//       handleValidationError(err, res);
+//     }
+//   });

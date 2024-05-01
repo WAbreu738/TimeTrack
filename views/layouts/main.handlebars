@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Project</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body class="bg-image">
+
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Timeline Project</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Timeline</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to our Timeline Project</h2>
+            <p>Explore our interactive timeline and see our journey!</p>
+        </div>
+        <form>
+            <div id="formContent form-co">
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </div>
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </section>
+    <div class="wrapper fadeInDown">
+    </div>
+
+    {{!-- INSERT FOR HANDLEBARS --}}
+    <main class="container-fluid">    
+    {{{body}}}
+  </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {{year}} Timeline Project</p>
+        </div>
+    </footer>
+
+    <!-- Handlebars Template -->
+    <script id="handlebars-template" type="text/x-handlebars-template">
+        <!-- Your Handlebars expressions go here -->
+    </script>
+</body>
+
+</html>
