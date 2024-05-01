@@ -27,9 +27,15 @@ function handleValidationError(err, res) {
   })
 }
 
-router.get('/test', (req, res) => {
-  res.send('route works!')
-})
+// View route
+router.get('/home', (req, res) => {
+  res.render('home'); 
+});
+
+// View route
+router.get('/about', (req, res) => {
+  res.render('about'); 
+});
 
 // View route
 router.get('/auth/register', (req, res) => {
@@ -59,17 +65,17 @@ router.post('/auth/register', async (req, res) => {
 }
 })
 
-router.get('/main', (req, res) => {
-  res.render('main'); 
-});
-
-
 
 //view route
-router.get('/events', isAuthenticated, (req, res) => {
-  console.log(req.session)
-  console.log(req.session.user_id)
-  res.render('events'); 
+router.get('/events', isAuthenticated, async (req, res) => {
+  
+  const events = await Event.findAll({
+    where : {
+      user_id: req.session.user_id
+    }
+  })
+  res.render('events', { events: events.map(eobj => eobj.get({ plain:true })) }); 
+
 });
 
 // Create a POST route to create an event

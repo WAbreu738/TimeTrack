@@ -5,6 +5,8 @@ require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT || 3333
 
+const path = require('path')
+
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -14,6 +16,8 @@ const client = require('./db/client')
 
 // Create a GET route for every file in public
 app.use(express.static('public'))
+
+app.use(express.static(path.join(__dirname, '/public')))
 
 // Allow URL Encoded data
 app.use(express.urlencoded({ extended: false }))
