@@ -28,15 +28,15 @@ router.post('/register', async (req, res) => {
 
 //Login a User
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body
 
   try {
     // Find user by email
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ where: { email } })
 
     // If user not found or password doesn't match, return error
     if (!user || !user.validatePass(password)) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+      return res.status(401).json({ error: 'Invalid email or password' })
     }
     req.session.user_id = user.user_id
   
@@ -44,9 +44,21 @@ router.post('/login', async (req, res) => {
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'Server error' })
   }
-});
+})
+
+// Logout route to destroy session
+router.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      res.sendStatus(500)
+    } else {
+      res.redirect('/login')
+    }
+  })
+})
 
 
 // Create a POST route to create an event
