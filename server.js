@@ -10,7 +10,7 @@ const path = require('path')
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const api_routes = require('./routes/api_routes')
+const router = require('./routes')
 
 const client = require('./db/client')
 
@@ -20,7 +20,7 @@ app.use(express.static('public'))
 app.use(express.static(path.join(__dirname, '/public')))
 
 // Allow URL Encoded data
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Setup handlebars
 app.engine('handlebars', engine());
@@ -38,7 +38,7 @@ app.use(session({
 }))
 
 // Load all routes
-app.use('/', api_routes)
+app.use('/', router)
 
 // Connect database
 client.sync({ force:false })
