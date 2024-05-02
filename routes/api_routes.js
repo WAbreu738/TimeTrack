@@ -27,17 +27,28 @@ function handleValidationError(err, res) {
   })
 }
 
-router.get('/test', (req, res) => {
-  res.send('route works!')
-})
+// View route
+router.get('/', (req, res) => {
+  res.render('home'); 
+});
+
+
+router.get('/about', (req, res) => {
+  res.render('about');
+});
+
 
 // View route
-router.get('/auth/register', (req, res) => {
+router.get('/register', (req, res) => {
   res.render('register'); 
 });
 
+router.get('/login', (req, res) => {
+  res.render('login');
+});
+
 //Register user
-router.post('/auth/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const { email, password, first_name, last_name } = req.body
     
@@ -73,24 +84,16 @@ router.get('/events', isAuthenticated, (req, res) => {
 });
 
 // Create a POST route to create an event
-router.post('/events', async (req, res) => {
-  try {
-    const { year, title, post } = req.body;
+router.get('/events', isAuthenticated, async (req, res) => {
 
-    // Create a new event in the database
-    const newEvent = await Event.create({
-      year,
-      title,
-      post,
-      user_id: req.session.user_id
-    });
-    
-    
-  } catch (err) {
-    handleValidationError(err, res);
-  }
+  const events = await Event.findAll({
+      where: {
+          user_id: req.session.user_id
+      }
+  })
+  res.render('events', { events: events.map(eobj => eobj.get({ plain: true })) });
+
 });
-
 
 module.exports = router
 
