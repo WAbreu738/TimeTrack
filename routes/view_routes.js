@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Event } = require('../models')
+const { Event, User } = require('../models')
 
 function isAuthenticated(req, res, next) {
     console.log(req.session)
@@ -33,14 +33,30 @@ router.get('/login', (req, res) => {
 
 //Show user's timeline page
 router.get('/events', isAuthenticated, async (req, res) => {
+    try {
+        const events = await Event.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
+            order: [['year', 'ASC']] // Order events by year in ascending order
+        })
 
-    const events = await Event.findAll({
-        where: {
-            user_id: req.session.user_id
-        }
-    })
-    res.render('events', { events: events.map(eobj => eobj.get({ plain: true })) });
+        const user = await User.findOne({
+            where: {
+                user_id: req.session.user_id
+            }
+        })
 
+        res.render('events', { 
+            events: events.map(eobj => eobj.get({ plain: true })),
+            firstName: user.first_name,
+            lastName: user.last_name
+         })
+
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 module.exports = router
