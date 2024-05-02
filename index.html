@@ -1,85 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Timeline Example</title>
-  <link href="./dist/jquery.roadmap.min.css" rel="stylesheet">
-  <!-- Include jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Include jQuery Roadmap Plugin -->
-  <script src=".//dist/jquery.roadmap.min.js"></script>
-  <style> /* Custom styling for the timeline */
-    .event {
-      margin-bottom: 20px;
-      width: 300px; /* Adjust width as needed */
-      display: block;
-    }
-    .event img {
-      max-width: 100px;
-      max-height: 100px;
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <h1>Timeline</h1>
-  </nav>
-  <div id="my-timeline"></div>
-
-  <script>
-    $(document).ready(function() {
-      // Create an array of events for the timeline
-      var myLifeStory = [
-        {
-          date: 'Born - 1937',
-          content: 'John Smith was born on May 15, 1937, in New York City.'
-        },
-        {
-          date: 'Childhood - 1940s',
-          content: 'He grew up in a loving family in a small suburban neighborhood.'
-        },
-        {
-          date: 'Education - 1950s',
-          content: 'John attended high school where he excelled in academics and sports.'
-        },
-        {
-          date: 'College - 1955',
-          content: 'He went to college and studied engineering, his passion since childhood.'
-        },
-        {
-          date: 'Career Start - 1960s',
-          content: 'John started his career as an engineer at a local manufacturing company.'
-        },
-        {
-          date: 'Marriage - 1963',
-          content: 'In 1963, John married his college sweetheart, Sarah.'
-        },
-        {
-          date: 'Children - 1965-1970',
-          content: 'Over the next few years, they welcomed two children into their family.'
-        },
-        {
-          date: 'Promotion - 1975',
-          content: 'John was promoted to a managerial position for his exemplary work.'
-        },
-        {
-          date: 'Retirement - 2000',
-          content: 'After a successful career, John retired and enjoyed traveling with his wife.'
-        },
-        {
-          date: 'Grandchildren - 2005',
-          content: 'In 2005, they became proud grandparents, cherishing every moment with their grandchildren.'
-        },
-        {
-          date: 'Legacy - Present',
-          content: 'John\'s legacy lives on through his family, friends, and the impact he made on his community.'
+    <meta charset="utf-8">
+    <title>Timeline</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Custom styles for hamburger menu */
+        .navbar-toggle {
+            border: none;
+            background: transparent;
+            padding: 15px 15px;
+            margin-top: 8px;
         }
-      ];
 
-      // Initialize the plugin
-      $('#my-timeline').roadmap(myLifeStory);
-    });
-  </script>
+        .navbar-toggle .icon-bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            border-radius: 1px;
+            background-color: #fff;
+        }
+
+        .navbar-toggle .icon-bar + .icon-bar {
+            margin-top: 4px;
+        }
+    </style>
+<!-- Code injected by Five-server -->
+  <script async data-id="five-server" data-file="/Users/ysl/Project2.1.5.1/timeline_database/index.html" type="application/javascript" src="/fiveserver.js"></script>
+  </head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">TimeLine</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/pages/home.html">Home</a></li>
+                        <li class="active"><a href="#">About</a></li>
+                        <li><a href="/pages/register.html">SignUp</a> </li>
+                        <li><a href="/pages/login.html">LogIn</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="top-section">
+            <h1>Animated Timeline</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ex, cupiditate alias voluptatem eum ipsam non tempora quia iusto reiciendis doloremque maiores, ipsa corporis aspernatur quo. Commodi, facere. Placeat, debitis!
+            </p>
+        </div>
+ <!-- APPENDED FUNCTIONALITY TO THE TIMELINE --><div class="timeline">
+    <div class="line"></div>
+<!-- APPEND HERE -->
+<div class="timeline">
+    <div class="line"></div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2> 2000</h2>
+            <h2>Marriage </h2> 
+
+            <p>John married his college sweetheart, Sarah, in a beautiful ceremony surrounded by family and friends. Their journey together began with promises of love and commitment. 
+                <a style="color: rgb(54, 47, 108);">Tags:</a>
+            <a href="#love">#love</a>, <a href="#family">#family</a></p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>New Home - 2005</h2>
+            <p>In 2005, they purchased their first family home, a cozy place where they watched their family blossom and created countless cherished memories.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Career Growth - 2008</h2>
+            <p>John's dedication to his work led to a significant promotion in 2008, providing stability for their growing family and opening up new opportunities.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Second Child - 2010</h2>
+            <p>Their family expanded with the birth of their second child, Michael, in 2010. Their home was filled with double the love, laughter, and sibling adventures.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Family Adventures - 2012-2015</h2>
+            <p>Over the next few years, they embarked on many family adventures, from memorable vacations to simple moments of togetherness, strengthening their bonds and creating lifelong memories.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Career Milestone - 2018</h2>
+            <p>John achieved a significant career milestone in 2018, a testament to his hard work and dedication, providing further stability and opportunities for their family's future.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>App Development - 2020</h2>
+            <p>During the pandemic, John and Sarah launched a mobile app aimed at connecting families virtually. The app quickly gained popularity as people sought new ways to stay connected during lockdowns.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Family Reunion - 2022</h2>
+            <p>As restrictions eased, John and Sarah organized a long-awaited family reunion, bringing together loved ones from near and far to celebrate togetherness and create new memories.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Community Involvement - 2023</h2>
+            <p>John and Sarah became actively involved in their community, volunteering their time and resources to support local causes and make a positive impact on those around them.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="bead"></div>
+        <div class="content">
+            <h2>Family Growth - 2024</h2>
+            <p>In 2024, Emily and Michael grew into remarkable young adults, embarking on their own journeys as they pursued higher education and career aspirations, filling John and Sarah with pride and anticipation for the future.</p>
+        </div>
+    </div>
+</div>
+
+    <script src="./script.js"></script>
 </body>
 </html>
+
