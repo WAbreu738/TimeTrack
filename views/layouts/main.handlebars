@@ -24,10 +24,10 @@
                         <a class="nav-link nav-color text-uppercase " href="/">Home</a>
 
                         {{#if user}}
-                        
+
                         <a class="nav-link nav-color text-uppercase " href="/events">Timeline</a>
                         <a class="nav-link nav-color text-uppercase " href="/about">About</a>
-                        
+
                         <form id="logoutForm" action="/logout" method="GET" class="d-inline">
                             <button type="submit"
                                 class="nav-link nav-color text-uppercase  btn btn-link">Logout</button>
@@ -50,13 +50,17 @@
         {{{body}}}
     </main>
 
-    <footer class="mt-4">
-        <p>&copy; 2024 Rutgers Coding Bootcamp</p>
-        <p class="d-flex justify-content-evenly">Wesley Abreu</p>
-        <p class="d-flex justify-content-evenly">Juan Vargas</p>
-        <p class="d-flex justify-content-evenly">Alice Ayres</p>
-        <p class="d-flex justify-content-evenly">Sylvester Assiamah</p>
+    <footer class="mt-5 text-center">
+        <p class="mb-4">&copy; 2024 Rutgers Coding Bootcamp</p>
+        <div class="d-flex justify-content-center">
+            <p class="me-4">Wesley Abreu</p>
+            <p class="me-4">Juan Vargas</p>
+            <p class="me-4">Alice Ayres</p>
+            <p>Sylvester Assiamah</p>
+        </div>
     </footer>
+
+
 
     <!-- Link jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
