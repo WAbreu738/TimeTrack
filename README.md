@@ -21,7 +21,7 @@
   - [Wesley Abreu](https://github.com/WAbreu738)
   - [Alice Ayres](https://github.com/Neppit)
   - [Sylvester Assiamah](https://github.com/AssiamahS)
-  - [Juan Jose Vargs](https://github.com/jv0321)
+  - [Juan Jose Vargas](https://github.com/jv0321)
 
 
   ## License
@@ -31,6 +31,6 @@
   For more information on license please click the [Link](https://opensource.org/licenses/MIT)
 
   ## Questions
-  For more check out my [GitHub](https://github.com/) 
+  For more check out my [GitHub](https://github.com/WAbreu738) 
   
   If you have any questions feel free to reach me at wesleyabreu738@gmail.com.👋
