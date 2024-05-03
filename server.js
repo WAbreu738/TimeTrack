@@ -34,7 +34,6 @@ app.use(session({
   store: new SequelizeStore({
     db: client,
   }),
-  // cookie: { secure: true }
 }))
 
 // Load all routes

@@ -110,21 +110,7 @@
                 .then(response => response.json()) // Assuming server returns JSON
                 .then(data => {
                     // Update EventList with new data
-                    //updateEventList(data);
                     window.location.reload();
-                    //console.log(data)
-                    //const eventList = document.querySelector(".timeline");
-                    /*eventList.insertAdjacentHTML("beforeend", 
-                    `<div class="section">
-                        <div class="bead"></div>
-                        <div class="content">
-                            <h2> {{year}}</h2>
-                            <h2>{{title}} </h2>
-                            <p>{{post}}</p>
-                        </div>
-                    </div>
-                    `)
-                    modal.style.display = "none"; */
 
                 })
                 .catch(error => {
