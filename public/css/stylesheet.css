@@ -232,3 +232,23 @@ footer {
 }
 
 
+.background-image {
+    background-image: url('/images/background.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 40%;
+}
+
+
+@media (max-width: 768px) {
+    .background-image {
+        display: none;
+    }
+}
+
+/* @media (max-width: 576px) {
+    .background-image {
+        height: 400px;
+    } 
+} */
