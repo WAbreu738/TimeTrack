@@ -3,11 +3,11 @@
 
 ## Table of Contents
 
- [Usage](#usage) 
- [Features](#features) 
- [Credits](#credits)
- [License](#license)
- [Questions](#questions)
+ - [Usage](#usage) 
+ - [Features](#features) 
+ - [Credits](#credits)
+ - [License](#license)
+ - [Questions](#questions)
 
   ## Description
   TimeTrack is a dynamic web application designed to empower users in preserving and reliving their most cherished memories. With TimeTrack, users can seamlessly transform their scattered moments into captivating narratives, effortlessly weaving together the threads of their lives.
@@ -18,10 +18,10 @@
   Register for an account or log in if you already have one. From the Timeline page, the user is able to Add Events with a year, title and description. 
 
   ## Credits
-  https://github.com/WAbreu738
-  https://github.com/Neppit
-  https://github.com/AssiamahS
-  https://github.com/jv0321
+  - [Wesley Abreu](https://github.com/WAbreu738)
+  - [Alice Ayres](https://github.com/Neppit)
+  - [Sylvester Assiamah](https://github.com/AssiamahS)
+  - [Juan Jose Vargs](https://github.com/jv0321)
 
 
   ## License
