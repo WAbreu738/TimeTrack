@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
       first_name,
       last_name
     }))
-    console.log(req.session)
+    
     req.session.user_id = newUser.user_id
     res.redirect('/events')
   } catch (err) {
@@ -29,6 +29,7 @@ router.post('/register', async (req, res) => {
 //Login a User
 router.post('/login', async (req, res) => {
   const { email, password } = req.body
+  
 
   try {
     // Find user by email
@@ -65,7 +66,7 @@ router.get('/logout', (req, res) => {
 router.post('/events', async (req, res) => {
   try {
     const { year, title, post } = req.body;
-
+    console.log(req.body);
     // Create a new event in the database
     const newEvent = await Event.create({
       year,
@@ -75,7 +76,7 @@ router.post('/events', async (req, res) => {
     });
 
     
-
+    res.json(newEvent)
   } catch (err) {
     console.log(err)
 

@@ -1,21 +1,27 @@
-body {
+body{
+    background-color: #eceef1;
+}
+
+.modal {
+    z-index: 102;
+}
+
+.timeline {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
     font-weight: 400;
-    color: white;
-    background-color: #4c4177;
-    background-image: linear-gradient(315deg,#4c4177 0%, #2a5470 74%);
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 .containter{
     padding: 2rem;
     padding-bottom: 400px;
     margin: 0 auto;
-    max-width: 800px;
-    color: white;
-
+    width: 100vw;
+    color: rgb(18, 14, 14);
 }
 
 .top-section{
@@ -23,7 +29,7 @@ body {
     padding: 4rem 0;
     max-width: 600px;
     margin: 0 auto;
-    color: white;
+    color: rgb(10, 7, 7);
 }
 .timeline{
     position: relative;
@@ -32,11 +38,11 @@ body {
 }
 .line {
     position: absolute;
-    z-index: 2;
-    left: 20px; /* Adjust this value to control the distance from the left edge */
+    z-index: 101;
+    left: 20%; 
     width: 2px;
-    top: -50px;
-    bottom: -50px;
+    top: 0;
+    bottom: 0;
     background-color: #000;
     display: none;
 }
@@ -61,15 +67,44 @@ body {
     opacity: 0;
     transform: translateX(100%); /* Initially move the sections to the right */
     transition: 600ms ease;
-    position: relative;
-    z-index: 1;
-    margin: 50px 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* background-color: #211e1e6b;  */
+
+    /* background: hsla(210, 32%, 46%, 1);
+
+    background: linear-gradient(0deg, rgb(0, 26, 35) 22%, hsla(217, 23%, 89%, 1) 88%);
+
+    background: -moz-linear-gradient(0deg, rgb(0, 26, 35) 22%, hsla(217, 23%, 89%, 1) 88%);
+
+    background: -webkit-linear-gradient(0deg, rgb(0, 26, 35) 22%, hsla(217, 23%, 89%, 1) 88%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4f759b", endColorstr="#DCE1E9", GradientType=1 );
+     */
+     background: #6951d4;
+
+     background: linear-gradient(0deg, #6951d4 12%, #eceef1 90%);
+     
+     background: -moz-linear-gradient(0deg, #6951d4 12%, #eceef1 90%);
+     
+     background: -webkit-linear-gradient(0deg, #6951d4 12%, #eceef1 90%);
+     
+     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#377771", endColorstr="#DCE1E9", GradientType=1 );
+
+
     padding: 1rem;
     border-radius: 1rem;
     align-items: center;
     min-height: 300px;
-    justify-content: flex-end; /* Align content to the right */
+    justify-content: center; 
 }
+
+.section.sticky + .section {
+    margin-top: 50px; /* Adjust margin to create space between sticky sections */
+}
+
 .section.ntn:nth-child(odd) {
     flex-direction: row-reverse;
     transform: translateX(100%);
@@ -81,34 +116,21 @@ body {
     width: 1rem;
     border-radius: 50%;
     background-color: #000;
-    left: 16px; /* Adjust this value to control the distance from the line */
+    left: 19.5%;
     top: 50%; /* Position the bead vertically in the center */
     transform: translateY(-50%); /* Adjust the vertical position based on the bead's height */
 }
 .content{
     width: calc(50% - 2rem);
-    color: white;
+    /* color: rgb(0, 0, 0); */
     
 }
 .show-me:nth-child(n){
     transform: none;
     opacity: 1;
 }
+
 h1{
     font-weight: 400;
     letter-spacing: 1px;
 }
-.read-more-btn {
-    background-color: white;
-    color: blue;
-    border: 1px solid blue;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.read-more-btn:hover {
-    background-color: blue;
-    color: white;
-}
-

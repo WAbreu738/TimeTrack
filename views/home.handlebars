@@ -1,39 +1,27 @@
-<body>
-    <div class="content text-center" style="padding-top: 50px;">
-        <div class="embedded-gif-container">
-            <iframe src="https://gifer.com/embed/7Knv" width="400" height="225" frameborder="0"
-                allowfullscreen></iframe>
-        </div>
+<main>
+    <div class="p-5 my-4 bg-body-tertiary rounded-3" style="background-image: url('/background.png'); background-size: contain; background-position: right; background-repeat: no-repeat;">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Timeline Maker</h1>
+        <h2 class="display-5 fw-bold" style="color: #6951d4">Craft Your Memories into Stories</h2>
+        <p class="col-md-8 fs-4">Transform moments into memories, memories into stories. Join us in crafting the narrative of your life with Timeline Maker – the ultimate platform for immortalizing your journey.</p>
+        <button class="btn btn-outline-primary" type="button"> <a class="color-hover" style="text-decoration: none" href="/login">Login</a></button>
+      </div>
     </div>
 
-    <div class="bg-image" style="background-image: url('/timeline_db/assets/image.jpg'); height: 100vh">
-        <section class="hero">
-            <div class="container text-center">
-                <h2 style="padding-top: 70px;">Welcome to our Timeline Project</h2>
-                <p>Explore our interactive timeline and see our journey!</p>
-                <a href="/index.html" class="btn text-primary" style="padding-bottom: 40px;">Explore Timeline</a>
-            </div>
-        </section>
-
-        <div class="container d-flex justify-content-center min-vh-100">
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                {{!-- <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> --}}
-                <button type="submit" class="btn btn-primary"> <a href="/events"></a>Login</button> 
-                <p style="padding-top: 50px;">Don't have an account? <a href="/register">Register</a></p>
-            </form>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2 style="color: #6951d4">Save Your Story</h2>
+          <p>Save your timeline securely by creating an account and unlock the full potential of Timeline Maker. Whether it's a personal journey or a shared history, your stories deserve to be preserved.</p>
+          <button class="btn btn-outline-light" type="button"><a style="text-decoration: none" class="text-light text-dark-hover" href="/register">Register</a></button>
+          {{!-- <button type="button"><a class="btn btn-outline-light" href="/register">Register</a></button> --}}
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2 style="color: #6951d4">Effortless Timeline Creation</h2>
+          <p>Crafting your timeline is as simple as clicking "Add," inputting a date and post, and watching your memories seamlessly integrate into your narrative. Let Timeline Maker guide you through the process, so your stories come to life effortlessly.</p>
+        </div>
+      </div>
     </div>
-
-</body>
+</main>
