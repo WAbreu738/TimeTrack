@@ -2,8 +2,7 @@ const router = require('express').Router()
 const { Event, User } = require('../models')
 
 function isAuthenticated(req, res, next) {
-    console.log(req.session)
-
+  
     if (!req.session.user_id) {
         return res.redirect('/login')
     }
@@ -12,13 +11,17 @@ function isAuthenticated(req, res, next) {
 }
 
 // Show homepage
-router.get('/home', (req, res) => {
-    res.render('home');
+router.get('/', (req, res) => {
+    const user = req.session.user_id ? true : false;
+    
+    res.render('home', { user: user });
 });
 
 // Show about
 router.get('/about', (req, res) => {
-    res.render('about');
+    const user = req.session.user_id ? true : false
+
+    res.render('about', { user: user });
 });
 
 // Show register page
@@ -47,10 +50,13 @@ router.get('/events', isAuthenticated, async (req, res) => {
             }
         })
 
+        const currentUser = req.session.user_id ? true : false
+
         res.render('events', { 
             events: events.map(eobj => eobj.get({ plain: true })),
             firstName: user.first_name,
-            lastName: user.last_name
+            lastName: user.last_name,
+            user: currentUser 
          })
 
     } catch (error) {

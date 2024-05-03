@@ -6,10 +6,17 @@
 }
 
 /* Header Styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+
+h2 {
+    color: #6951d4
+}
+
+nav {
+ background-color: #212529;
+}
+
+.nav-color {
+    color: #eceef1
 }
 
 nav ul {
@@ -43,9 +50,12 @@ nav ul li a {
     margin-bottom: 30px;
 }
 
+
+
+
 /* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: #212529;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -106,14 +116,6 @@ footer {
 
 #formFooter .underlineHover:hover {
     text-decoration: underline;
-}
-
-.bg-image {
-    background-image: url('/timeline_database/assets/image.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    height: 100vh;
 }
 
 /* Event Form Styles */

@@ -18,7 +18,7 @@ const client = require('./db/client')
 app.use(express.static('public'))
 
 app.use(express.static(path.join(__dirname, '/public')))
-
+app.use(express.json())
 // Allow URL Encoded data
 app.use(express.urlencoded({ extended: true }))
 

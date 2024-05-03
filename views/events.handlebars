@@ -1,149 +1,86 @@
-{{!-- Sylvester --}}
+<div>
+    <div class="text-center">
+        <h1 class="my-4 fw-bolder">Welcome {{ firstName }} {{ lastName }}</h1>
 
-<head>
-    <meta charset="utf-8">
-    <title>Timeline</title>
-    <link rel="stylesheet" href="/timeline_database/css/main.css">
-</head>
+        <h3>We're thrilled to have you here. Let's get started:</h3>
+        
+            <p>Begin by clicking the "Add an Event" button to create a new event on your timeline.</p>
+            <p>Enter the Event Details:</p>
+                <li>Year: Input the year of the event.</li>
+                <li>Title: Give your event a descriptive title.</li>
+                <li>Description: Provide a brief description of the event.</li>
+            <br>
+            <p>Submit Your Event: Hit the submit button to add your event to the timeline.</p>
+        
 
-<body>
-    <div class="container">
-        <div class="top-section">
-            <h1>Animated Timeline</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ex, cupiditate alias voluptatem eum
-                ipsam non tempora quia iusto reiciendis doloremque maiores, ipsa corporis aspernatur quo. Commodi,
-                facere. Placeat, debitis!
-            </p>
+        <button id="myBtn" class="btn btn-primary rounded-pill px-4 py-2 my-4">Add an Event</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <div class="register-container">
+                <h2 style="text-align: center;">Timeline</h2>
+                <form id="event-form">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="year">Year:</label>
+                        <input type="number" id="year" name="year" class="form-control" placeholder="Year" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="post">Post:</label>
+                        <textarea id="post" name="post" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Create Event</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="timeline">
+    </div>
+
+
+
+    <div class="timeline">
+        <div>
             <div class="line"></div>
-            <div class="section">
+            {{#each events}}
+
+            <div class="section my-2">
                 <div class="bead"></div>
                 <div class="content">
-                    <h2>Web Design</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
+                    <h1 class="fs-2 fw-bolder text-wrap" style="width: 9rem; color: #eceef1"> {{year}}</h1>
+                    <h2 class="fs-1" style="color: #eceef1;">{{title}} </h2>
+                    <p class="text-dark fs-5">{{post}}</p>
                 </div>
             </div>
-
-            <div class="section">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Web Development</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Frontend</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="section">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>Backend</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="section">
-                <div class="bead"></div>
-                <div class="content">
-                    <h2>SEO Optimized</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-
-
+            {{/each}}
         </div>
     </div>
-    <script src="timeline.js"></script>
 
 
 
-
-
-
-
-
-
-
-
-
-    {{!-- User inputs --}}
-    <h2>Welcome {{ firstName }} {{ lastName }}</h2>
-    
-    <form id="logoutForm" action="/logout" method="GET">
-        <button type="submit">Logout</button>
-    </form>
-
-    <div>
-        <h1>Event List</h1>
-        <ul id="event-list">
-            {{#each events}}
-            <li>{{this.year}} - {{this.title}} - {{this.post}}</li>
-            {{/each}}
-        </ul>
-    </div>
 
     {{!-- MODAL --}}
 
-    <button id="myBtn">+</button>
-
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>
-            <div class="register-container">
-                <h2>Timeline</h2>
-                <form id="event-form" action="/events" method="POST">
-                    <div class="form-group">
-                        <label for="year">Year:</label>
-                        <input type="number" id="year" name="year" placeholder="Year" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="post">Post:</label>
-                        <textarea id="post" name="post" required></textarea>
-                    </div>
-                    <button type="submit">Create Event</button>
-                </form>
-            </div>
-            </p>
-        </div>
-    </div>
 
     <script>
         var modal = document.getElementById("myModal");
-        // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
-        // When the user clicks on the button, open the modal
+
         btn.onclick = function () {
             modal.style.display = "block";
         }
-        // When the user clicks on <span> (x), close the modal
+
         span.onclick = function () {
             modal.style.display = "none";
         }
-        // When the user clicks anywhere outside of the modal, close it
+
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -154,10 +91,61 @@
             // Prevent default form submission
             event.preventDefault();
 
-            // Submit the form via AJAX or any other method
-            //NEED TO ENTER CODE HERE
+            // Serialize form data
+            var formData = {
+                year: this.year.value,
+                title: this.title.value,
+                post: this.post.value
+            };
+            console.log(formData);
+            // Send form data via AJAX
+            fetch("/events", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
 
-            // Reload the page after form submission
-            location.reload();
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json()) // Assuming server returns JSON
+                .then(data => {
+                    // Update EventList with new data
+                    //updateEventList(data);
+                    window.location.reload();
+                    //console.log(data)
+                    //const eventList = document.querySelector(".timeline");
+                    /*eventList.insertAdjacentHTML("beforeend", 
+                    `<div class="section">
+                        <div class="bead"></div>
+                        <div class="content">
+                            <h2> {{year}}</h2>
+                            <h2>{{title}} </h2>
+                            <p>{{post}}</p>
+                        </div>
+                    </div>
+                    `)
+                    modal.style.display = "none"; */
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle error if needed
+                });
         });
+
+        // Function to update the EventList
+        function updateEventList(data) {
+            // Assuming data is an array of events
+            var eventList = document.getElementById("event-list");
+            eventList.innerHTML = ""; // Clear existing list
+
+            data.forEach(event => {
+                var eventItem = document.createElement("li");
+                eventItem.textContent = event.title + " - " + event.year; // Customize as needed
+                eventList.appendChild(eventItem);
+            });
+        }
+
+
     </script>
+</div>

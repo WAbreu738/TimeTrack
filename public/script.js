@@ -25,12 +25,7 @@ window.addEventListener('load', function() {
 
   window.addEventListener('scroll', handleScroll);
 
-  // Moved toggleMenu related code here
-  const toggleMenu = document.querySelector('#toggleMenu');
-  toggleMenu.addEventListener('click', () => {
-    toggleMenu.classList.toggle('hamburger-toggle');
-    handleScroll();
-  });
+
 });
 
 // Get all the sections
